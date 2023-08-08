@@ -1,0 +1,57 @@
+==== Creacion De Modelo ====
+---- en nustro componente Todo creamos un directorio llamado models
+---- en esta carpeta estara nuestro modelo para la tareas y se podra ver sus atributos y como estara 
+---- estructurada una tarea
+
+==== Ngrx Instalacion ====
+---- instalamos la libreria en la version que nesecitemos segun sea la version de angular
+
+---- creamos un directorio llamado store que es ahi donde estara implementado 
+---- todo el patron redux
+
+==== Importacion del StoreModule ====
+---- esto es interesante ya que debido a que tenemos un modulo 
+
+==== Definiendo El Appstate ====
+---- antes de poner el appstate instalaremos la herramienta redux devtools 
+---- en nuestra aplicacion para poder ver como cambia el estado
+
+---- Ahoara nuestra aplicacion va a manejar un arreglo de Todos pero en un futuro podemos tener mas cosas 
+---- entonces, para definir nuestro appstate con una interface de como trabajara el estado de Todo
+
+
+==== Construccion del Formcontrol para el input de agregar una tarea ====
+---- como vamos a trabajar con formularios reactivos necesitamos inportar el modulo ReactiveFormsModule 
+---- de angular form
+
+
+==== Completa o desmarcar un TODO ====
+---- vamos a  trabajar disparando acciones cuando se activa o se desactiva el chek que nos aparece en la pantalla
+---- y para eso no spodemos suscribir al chek directamente cuando se activa o se desactiva
+
+
+==== Filtrado ====
+---- Para implementar un filtro bamos a crear otro reducer deform que el estado tenga otro nodo
+---- y para eso vamos a crear un acarpeta llamada filtro
+
+==== Mas Reducer En el State ====
+---- Ya creamos acciones y un nuevo reducer que maneja los filtros de la aplicacion
+---- pero para que se muestre en la extencion del navegador ese reducer lo debemos agregar
+---- al la configuracion de reducers en nuestro app.module  StoreModule.forRoot({todos:totoReducer}),
+---- podemos agregar el nuevo reducer aqui mismo StoreModule.forRoot({todos:totoReducer, filtro:filtroReducer}),
+---- pero antes de hacer eso mejor configuramos los reducer dentro del app.reducer para posteriormente cargarlos por 
+---- lazyloading entonces vamos a nuestro app.reducers a configurarar el nuevo reducer que hemos creado
+
+---- ahora despues de encadenar todos los reducer en un objeto en la configuracion del app.module
+---- reemplazamos StoreModule.forRoot({todos:totoReducer}), por StoreModule.forRoot({appReducers})
+
+==== cambiar el filtro ====
+---- para cambiar el filtro y mandaar la accion para que modifique el estado del filtro 
+---- seria sencilla tal cual como lo hemos venido haciendo con las demas acciones
+
+==== Aplicar el filtro visual ====
+---- para cambiar el filtro visual nos vamos a crear un pipe para cambiar la informacion visualmente
+
+==== Limpirar Completdas Como tarea ====
+---- para limpiar comletadas lo que hare  sera: crar otra accion en el para el reducer de Todos 
+---- para despacharla desde el componente de footer
